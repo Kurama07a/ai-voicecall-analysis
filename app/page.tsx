@@ -50,26 +50,26 @@ const ProcessingStageIndicator = ({ stage }: { stage: ProcessingStage }) => {
             }`}>
               <div className={`relative w-16 h-16 rounded-full flex items-center justify-center transition-all duration-500 ${
                 isComplete 
-                  ? 'bg-green-500/20 border-2 border-green-500' 
+                  ? 'bg-slate-700/30 border-2 border-slate-600' 
                   : isActive 
-                  ? 'bg-blue-500/20 border-2 border-blue-500 animate-pulse' 
-                  : 'bg-slate-800/50 border-2 border-slate-700'
+                  ? 'bg-slate-700/30 border-2 border-slate-500 animate-pulse' 
+                  : 'bg-slate-900/50 border-2 border-slate-800'
               }`}>
                 {isComplete && !isActive ? (
-                  <CheckCircle2 className="w-8 h-8 text-green-400" />
+                  <CheckCircle2 className="w-8 h-8 text-slate-400" />
                 ) : (
                   <>
                     <Icon className={`w-8 h-8 ${
-                      isActive ? 'text-blue-400 animate-bounce' : 'text-slate-500'
+                      isActive ? 'text-slate-300 animate-bounce' : 'text-slate-600'
                     }`} />
                     {isActive && (
-                      <div className="absolute inset-0 rounded-full border-4 border-blue-500 animate-ping opacity-75"></div>
+                      <div className="absolute inset-0 rounded-full border-4 border-slate-500 animate-ping opacity-75"></div>
                     )}
                   </>
                 )}
               </div>
               <span className={`text-sm font-medium transition-colors ${
-                isActive ? 'text-blue-400' : isComplete ? 'text-green-400' : 'text-slate-500'
+                isActive ? 'text-slate-300' : isComplete ? 'text-slate-400' : 'text-slate-600'
               }`}>
                 {s.label}
               </span>
@@ -77,8 +77,8 @@ const ProcessingStageIndicator = ({ stage }: { stage: ProcessingStage }) => {
             {index < stages.length - 1 && (
               <div className={`w-16 h-1 mx-2 rounded-full transition-all duration-500 ${
                 isComplete || (isActive && index < currentIndex) 
-                  ? 'bg-green-500' 
-                  : 'bg-slate-700'
+                  ? 'bg-slate-600' 
+                  : 'bg-slate-800'
               }`}></div>
             )}
           </div>
@@ -243,23 +243,23 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-linear-to-br from-slate-950 via-blue-950 to-slate-900">
+    <div className="min-h-screen relative overflow-hidden bg-linear-to-br from-black via-slate-950 to-slate-900">
       {/* Animated background grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-size-[14px_24px] mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000,transparent)]"></div>
-      <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-transparent to-transparent"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b1a_1px,transparent_1px),linear-gradient(to_bottom,#1e293b1a_1px,transparent_1px)] bg-size-[14px_24px] mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000,transparent)]"></div>
+      <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent"></div>
       
       {/* Floating orbs */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/30 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute top-20 left-10 w-72 h-72 bg-slate-700/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-slate-600/15 rounded-full blur-3xl animate-pulse"></div>
       
       <div className="relative max-w-6xl mx-auto px-4 py-12 space-y-8">
         {/* Header */}
         <div className="text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full mb-4 backdrop-blur-sm">
-            <Sparkles className="w-4 h-4 text-blue-400 animate-pulse" />
-            <span className="text-sm font-medium text-blue-300">AI-Powered Analysis</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800/40 border border-slate-700/50 rounded-full mb-4 backdrop-blur-sm">
+            <Sparkles className="w-4 h-4 text-slate-300 animate-pulse" />
+            <span className="text-sm font-medium text-slate-300">AI-Powered Analysis</span>
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold bg-linear-to-r from-blue-200 via-blue-400 to-purple-400 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-5xl md:text-6xl font-bold bg-linear-to-r from-slate-200 via-slate-400 to-slate-500 bg-clip-text text-transparent leading-tight">
             Voice Call Analyzer
           </h1>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto">
@@ -268,13 +268,13 @@ export default function Home() {
         </div>
 
         {/* Upload Section */}
-        <Card className="border-slate-800 bg-slate-900/50 backdrop-blur-xl shadow-2xl">
+        <Card className="border-slate-800/50 bg-black/40 backdrop-blur-xl shadow-2xl">
           <CardHeader>
             <CardTitle className="text-2xl text-slate-100 flex items-center gap-2">
-              <Upload className="w-6 h-6 text-blue-400" />
+              <Upload className="w-6 h-6 text-slate-400" />
               Upload Audio Recording
             </CardTitle>
-            <CardDescription className="text-slate-400">
+            <CardDescription className="text-slate-500">
               Drag and drop or click to upload a .mp3 or .wav file
             </CardDescription>
           </CardHeader>
@@ -285,8 +285,8 @@ export default function Home() {
               onDrop={handleDrop}
               className={`relative border-2 border-dashed rounded-xl p-12 text-center transition-all duration-300 ${
                 isDragging
-                  ? 'border-blue-500 bg-blue-500/10 scale-105'
-                  : 'border-slate-700 bg-slate-800/30 hover:border-slate-600 hover:bg-slate-800/50'
+                  ? 'border-slate-500 bg-slate-800/30 scale-105'
+                  : 'border-slate-800 bg-slate-900/30 hover:border-slate-700 hover:bg-slate-900/50'
               }`}
             >
               <input
@@ -302,10 +302,10 @@ export default function Home() {
               >
                 <div className="relative">
                   <Upload className={`w-16 h-16 transition-all duration-300 ${
-                    isDragging ? 'text-blue-400 scale-110' : 'text-slate-500'
+                    isDragging ? 'text-slate-300 scale-110' : 'text-slate-600'
                   }`} />
                   {isDragging && (
-                    <div className="absolute inset-0 bg-blue-400/20 rounded-full blur-xl animate-pulse"></div>
+                    <div className="absolute inset-0 bg-slate-400/20 rounded-full blur-xl animate-pulse"></div>
                   )}
                 </div>
                 <div>
@@ -321,7 +321,7 @@ export default function Home() {
 
             {/* Audio Player */}
             {audioUrl && (
-              <div className="space-y-4 p-6 bg-slate-800/40 rounded-xl border border-slate-700 backdrop-blur-sm">
+              <div className="space-y-4 p-6 bg-slate-900/40 rounded-xl border border-slate-800 backdrop-blur-sm">
                 <audio
                   ref={audioRef}
                   src={audioUrl}
@@ -332,7 +332,7 @@ export default function Home() {
                   <Button
                     onClick={togglePlayPause}
                     size="lg"
-                    className="gap-2 bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-500/30"
+                    className="gap-2 bg-slate-700 hover:bg-slate-600 text-white shadow-lg shadow-slate-900/50"
                   >
                     {isPlaying ? (
                       <>
@@ -359,9 +359,9 @@ export default function Home() {
                   onClick={handleProcess}
                   disabled={isProcessing}
                   size="lg"
-                  className="w-full bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg shadow-purple-500/30 relative overflow-hidden group"
+                  className="w-full bg-linear-to-r from-slate-700 to-slate-800 hover:from-slate-600 hover:to-slate-700 text-white shadow-lg shadow-black/50 relative overflow-hidden group"
                 >
-                  <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
+                  <span className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
                   <span className="relative flex items-center justify-center gap-2">
                     {isProcessing ? (
                       <>
@@ -383,11 +383,11 @@ export default function Home() {
 
         {/* Processing Indicator */}
         {isProcessing && (
-          <Card className="border-slate-800 bg-slate-900/50 backdrop-blur-xl shadow-2xl">
+          <Card className="border-slate-800/50 bg-black/40 backdrop-blur-xl shadow-2xl">
             <CardContent className="pt-6">
               <ProcessingStageIndicator stage={processingStage} />
               <div className="text-center">
-                <p className="text-slate-400 text-sm">
+                <p className="text-slate-500 text-sm">
                   {processingStage === 'transcribing' && 'Converting speech to text using Whisper AI...'}
                   {processingStage === 'analyzing' && 'Evaluating call quality with Llama AI...'}
                   {processingStage === 'uploading' && 'Preparing your audio file...'}
@@ -402,19 +402,19 @@ export default function Home() {
           <div className="space-y-6 animate-fade-in">
             {/* Transcript with Typewriter Effect */}
             {result.transcript && (
-              <Card className="border-slate-800 bg-slate-900/50 backdrop-blur-xl shadow-2xl">
+              <Card className="border-slate-800/50 bg-black/40 backdrop-blur-xl shadow-2xl">
                 <CardHeader>
                   <CardTitle className="text-2xl text-slate-100 flex items-center gap-2">
-                    <FileAudio className="w-6 h-6 text-green-400" />
+                    <FileAudio className="w-6 h-6 text-slate-400" />
                     Call Transcript
                     {displayedTranscript !== result.transcript && (
-                      <span className="ml-auto text-sm text-blue-400 flex items-center gap-1">
+                      <span className="ml-auto text-sm text-slate-400 flex items-center gap-1">
                         <Zap className="w-4 h-4 animate-pulse" />
                         Transcribing...
                       </span>
                     )}
                   </CardTitle>
-                  <CardDescription className="text-slate-400">
+                  <CardDescription className="text-slate-500">
                     Real-time transcription powered by Whisper AI
                   </CardDescription>
                 </CardHeader>
@@ -423,11 +423,11 @@ export default function Home() {
                     <Textarea
                       value={displayedTranscript}
                       readOnly
-                      className="min-h-[200px] resize-none font-mono text-sm bg-slate-800/50 border-slate-700 text-slate-300 focus-visible:ring-blue-500"
+                      className="min-h-[200px] resize-none font-mono text-sm bg-slate-900/50 border-slate-800 text-slate-300 focus-visible:ring-slate-600"
                     />
                     {displayedTranscript !== result.transcript && (
                       <div className="absolute bottom-4 right-4">
-                        <div className="w-2 h-4 bg-blue-400 animate-pulse"></div>
+                        <div className="w-2 h-4 bg-slate-400 animate-pulse"></div>
                       </div>
                     )}
                   </div>
@@ -437,15 +437,15 @@ export default function Home() {
 
             {/* Overall Score Summary */}
             {showScores && (
-              <Card className="border-2 border-blue-500/30 bg-linear-to-br from-blue-900/30 to-purple-900/30 backdrop-blur-xl shadow-2xl animate-scale-in">
+              <Card className="border-2 border-slate-700/50 bg-linear-to-br from-slate-900/50 to-black/50 backdrop-blur-xl shadow-2xl animate-scale-in">
                 <CardHeader>
                   <CardTitle className="text-3xl text-slate-100 flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center">
-                      <Sparkles className="w-6 h-6 text-blue-400" />
+                    <div className="w-12 h-12 rounded-full bg-slate-800/50 flex items-center justify-center">
+                      <Sparkles className="w-6 h-6 text-slate-400" />
                     </div>
                     Overall Performance
                   </CardTitle>
-                  <CardDescription className="text-lg text-slate-300">
+                  <CardDescription className="text-lg text-slate-400">
                     Total Score: {getScorePercentage(result.scores)}% • {Object.values(result.scores).reduce((a, b) => a + b, 0)} / {EVALUATION_PARAMETERS.reduce((sum, p) => sum + p.weight, 0)} points
                   </CardDescription>
                 </CardHeader>
@@ -453,13 +453,13 @@ export default function Home() {
                   <div className="space-y-3">
                     <Progress 
                       value={getScorePercentage(result.scores)} 
-                      className="h-6 bg-slate-800" 
+                      className="h-6 bg-slate-900" 
                     />
                     <div className="flex justify-between text-sm">
-                      <span className="text-slate-400">Performance Level</span>
+                      <span className="text-slate-500">Performance Level</span>
                       <span className={`font-semibold ${
                         getScorePercentage(result.scores) >= 85 ? 'text-green-400' :
-                        getScorePercentage(result.scores) >= 70 ? 'text-blue-400' :
+                        getScorePercentage(result.scores) >= 70 ? 'text-slate-300' :
                         'text-yellow-400'
                       }`}>
                         {getScorePercentage(result.scores) >= 85 ? 'Excellent' :
@@ -474,13 +474,13 @@ export default function Home() {
 
             {/* Detailed Scores */}
             {showScores && (
-              <Card className="border-slate-800 bg-slate-900/50 backdrop-blur-xl shadow-2xl">
+              <Card className="border-slate-800/50 bg-black/40 backdrop-blur-xl shadow-2xl">
                 <CardHeader>
                   <CardTitle className="text-2xl text-slate-100 flex items-center gap-2">
-                    <Brain className="w-6 h-6 text-purple-400" />
+                    <Brain className="w-6 h-6 text-slate-400" />
                     Detailed Evaluation
                   </CardTitle>
-                  <CardDescription className="text-slate-400">
+                  <CardDescription className="text-slate-500">
                     Performance breakdown by evaluation criteria
                   </CardDescription>
                 </CardHeader>
@@ -495,7 +495,7 @@ export default function Home() {
                     return (
                       <div 
                         key={param.key} 
-                        className="p-5 rounded-xl border bg-slate-800/40 border-slate-700 hover:bg-slate-800/60 transition-all duration-300 hover:scale-[1.02] backdrop-blur-sm"
+                        className="p-5 rounded-xl border bg-slate-900/40 border-slate-800 hover:bg-slate-900/60 transition-all duration-300 hover:scale-[1.02] backdrop-blur-sm"
                         style={{
                           animation: `slideInUp 0.5s ease-out ${index * 0.1}s both`
                         }}
@@ -556,10 +556,10 @@ export default function Home() {
             {/* Feedback Cards */}
             {showScores && (
               <div className="grid md:grid-cols-2 gap-6">
-                <Card className="border-slate-800 bg-slate-900/50 backdrop-blur-xl shadow-2xl animate-slide-in-left">
+                <Card className="border-slate-800/50 bg-black/40 backdrop-blur-xl shadow-2xl animate-slide-in-left">
                   <CardHeader>
                     <CardTitle className="text-xl text-slate-100">Overall Feedback</CardTitle>
-                    <CardDescription className="text-slate-400">
+                    <CardDescription className="text-slate-500">
                       Summary of call performance
                     </CardDescription>
                   </CardHeader>
@@ -567,15 +567,15 @@ export default function Home() {
                     <Textarea
                       value={result.overallFeedback}
                       readOnly
-                      className="min-h-[150px] resize-none bg-slate-800/50 border-slate-700 text-slate-300 leading-relaxed"
+                      className="min-h-[150px] resize-none bg-slate-900/50 border-slate-800 text-slate-300 leading-relaxed"
                     />
                   </CardContent>
                 </Card>
 
-                <Card className="border-slate-800 bg-slate-900/50 backdrop-blur-xl shadow-2xl animate-slide-in-right">
+                <Card className="border-slate-800/50 bg-black/40 backdrop-blur-xl shadow-2xl animate-slide-in-right">
                   <CardHeader>
                     <CardTitle className="text-xl text-slate-100">Detailed Observations</CardTitle>
-                    <CardDescription className="text-slate-400">
+                    <CardDescription className="text-slate-500">
                       Specific insights and improvements
                     </CardDescription>
                   </CardHeader>
@@ -583,7 +583,7 @@ export default function Home() {
                     <Textarea
                       value={result.observation}
                       readOnly
-                      className="min-h-[150px] resize-none bg-slate-800/50 border-slate-700 text-slate-300 leading-relaxed"
+                      className="min-h-[150px] resize-none bg-slate-900/50 border-slate-800 text-slate-300 leading-relaxed"
                     />
                   </CardContent>
                 </Card>
