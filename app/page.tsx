@@ -437,15 +437,15 @@ export default function Home() {
 
             {/* Overall Score Summary */}
             {showScores && (
-              <Card className="border-2 border-slate-700/50 bg-linear-to-br from-slate-900/50 to-black/50 backdrop-blur-xl shadow-2xl animate-scale-in">
+              <Card className="border-2 border-slate-800/50 bg-black/30 backdrop-blur-xl shadow-2xl animate-scale-in">
                 <CardHeader>
-                  <CardTitle className="text-3xl text-slate-100 flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-full bg-slate-800/50 flex items-center justify-center">
-                      <Sparkles className="w-6 h-6 text-slate-400" />
+                  <CardTitle className="text-3xl text-slate-200 flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-full bg-slate-900/50 flex items-center justify-center">
+                      <Sparkles className="w-6 h-6 text-slate-500" />
                     </div>
                     Overall Performance
                   </CardTitle>
-                  <CardDescription className="text-lg text-slate-400">
+                  <CardDescription className="text-lg text-slate-500">
                     Total Score: {getScorePercentage(result.scores)}% • {Object.values(result.scores).reduce((a, b) => a + b, 0)} / {EVALUATION_PARAMETERS.reduce((sum, p) => sum + p.weight, 0)} points
                   </CardDescription>
                 </CardHeader>
@@ -453,13 +453,13 @@ export default function Home() {
                   <div className="space-y-3">
                     <Progress 
                       value={getScorePercentage(result.scores)} 
-                      className="h-6 bg-slate-900" 
+                      className="h-6 bg-black/50" 
                     />
                     <div className="flex justify-between text-sm">
-                      <span className="text-slate-500">Performance Level</span>
+                      <span className="text-slate-600">Performance Level</span>
                       <span className={`font-semibold ${
                         getScorePercentage(result.scores) >= 85 ? 'text-green-400' :
-                        getScorePercentage(result.scores) >= 70 ? 'text-slate-300' :
+                        getScorePercentage(result.scores) >= 70 ? 'text-slate-400' :
                         'text-yellow-400'
                       }`}>
                         {getScorePercentage(result.scores) >= 85 ? 'Excellent' :
@@ -474,17 +474,17 @@ export default function Home() {
 
             {/* Detailed Scores */}
             {showScores && (
-              <Card className="border-slate-800/50 bg-black/40 backdrop-blur-xl shadow-2xl">
+              <Card className="border-slate-800/50 bg-black/30 backdrop-blur-xl shadow-2xl">
                 <CardHeader>
-                  <CardTitle className="text-2xl text-slate-100 flex items-center gap-2">
-                    <Brain className="w-6 h-6 text-slate-400" />
+                  <CardTitle className="text-2xl text-slate-200 flex items-center gap-2">
+                    <Brain className="w-6 h-6 text-slate-500" />
                     Detailed Evaluation
                   </CardTitle>
-                  <CardDescription className="text-slate-500">
+                  <CardDescription className="text-slate-600">
                     Performance breakdown by evaluation criteria
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="grid md:grid-cols-2 gap-4">
                   {EVALUATION_PARAMETERS.map((param, index) => {
                     const score = result.scores[param.key] || 0;
                     const animatedScore = animatedScores[param.key] || 0;
@@ -495,7 +495,7 @@ export default function Home() {
                     return (
                       <div 
                         key={param.key} 
-                        className="p-5 rounded-xl border bg-slate-900/40 border-slate-800 hover:bg-slate-900/60 transition-all duration-300 hover:scale-[1.02] backdrop-blur-sm"
+                        className="p-5 rounded-xl border bg-black/40 border-slate-800/50 hover:bg-slate-900/40 transition-all duration-300 hover:scale-[1.02] backdrop-blur-sm"
                         style={{
                           animation: `slideInUp 0.5s ease-out ${index * 0.1}s both`
                         }}
@@ -503,7 +503,7 @@ export default function Home() {
                         <div className="flex justify-between items-start gap-4 mb-3">
                           <div className="flex-1">
                             <div className="flex items-center gap-2 mb-2">
-                              <Label className="text-base font-semibold text-slate-200">
+                              <Label className="text-base font-semibold text-slate-300">
                                 {param.name}
                               </Label>
                               {param.type === INPUT_TYPES.PASS_FAIL && (
@@ -516,7 +516,7 @@ export default function Home() {
                                 </span>
                               )}
                             </div>
-                            <p className="text-sm text-slate-400 leading-relaxed">
+                            <p className="text-sm text-slate-500 leading-relaxed">
                               {param.description}
                             </p>
                           </div>
@@ -533,17 +533,17 @@ export default function Home() {
                               )
                             )}
                             <div>
-                              <span className="text-2xl font-bold text-slate-100 tabular-nums">
+                              <span className="text-2xl font-bold text-slate-200 tabular-nums">
                                 {Math.floor(animatedScore)}
                               </span>
-                              <span className="text-slate-500">/{param.weight}</span>
+                              <span className="text-slate-600">/{param.weight}</span>
                             </div>
                           </div>
                         </div>
                         {param.type === INPUT_TYPES.SCORE && (
                           <Progress 
                             value={percentage} 
-                            className="h-2 bg-slate-700/50" 
+                            className="h-2 bg-black/50" 
                           />
                         )}
                       </div>
