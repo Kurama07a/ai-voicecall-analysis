@@ -404,17 +404,17 @@ export default function Home() {
             {result.transcript && (
               <Card className="border-slate-800/50 bg-black/40 backdrop-blur-xl shadow-2xl">
                 <CardHeader>
-                  <CardTitle className="text-2xl text-slate-100 flex items-center gap-2">
-                    <FileAudio className="w-6 h-6 text-slate-400" />
+                  <CardTitle className="text-2xl text-slate-200 flex items-center gap-2">
+                    <FileAudio className="w-6 h-6 text-slate-500" />
                     Call Transcript
                     {displayedTranscript !== result.transcript && (
-                      <span className="ml-auto text-sm text-slate-400 flex items-center gap-1">
+                      <span className="ml-auto text-sm text-slate-500 flex items-center gap-1">
                         <Zap className="w-4 h-4 animate-pulse" />
                         Transcribing...
                       </span>
                     )}
                   </CardTitle>
-                  <CardDescription className="text-slate-500">
+                  <CardDescription className="text-slate-600">
                     Real-time transcription powered by Whisper AI
                   </CardDescription>
                 </CardHeader>
@@ -423,11 +423,11 @@ export default function Home() {
                     <Textarea
                       value={displayedTranscript}
                       readOnly
-                      className="min-h-[200px] resize-none font-mono text-sm bg-slate-900/50 border-slate-800 text-slate-300 focus-visible:ring-slate-600"
+                      className="min-h-[200px] resize-none font-mono text-sm bg-black/30 border-slate-800/50 text-slate-400 focus-visible:ring-slate-700"
                     />
                     {displayedTranscript !== result.transcript && (
                       <div className="absolute bottom-4 right-4">
-                        <div className="w-2 h-4 bg-slate-400 animate-pulse"></div>
+                        <div className="w-2 h-4 bg-slate-600 animate-pulse"></div>
                       </div>
                     )}
                   </div>
